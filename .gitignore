@@ -9,3 +9,4 @@ __pycache__/
 Thumbs.db
 # Large or temporary data
 data/processed/*.parquet
+data/processed/articles_2021_text.csv
