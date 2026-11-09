@@ -6,7 +6,7 @@
 
 This project studies how viral social media trends turn into threats against schools. It builds a classifier that separates news coverage of real student threats from coverage that uses similar words for something else, and uses it to measure how reliable keyword counts are as a way of tracking these trends.
 
-The main case is the December 2021 TikTok school threat trend, from 15 November 2021 to 14 January 2022. The 2016 Killer Clown craze, the 2021 Devious Licks trend, the 2026 Cat in the Hat trend and the 2019 Momo scare, used as a control, give the comparison across periods.
+The main case is the December 2021 TikTok school threat trend, from 15 November 2021 to 14 January 2022. The 2016 Killer Clown craze, the 2021 Devious Licks trend, the 2026 Cat in the Hat trend and the 2019 Momo scare, used as a control, give the comparison across periods. The classifier covers the 2021 TikTok case, where we collected the article text. The other periods are compared by their daily article counts. 
 
 ## Why a keyword count is not enough
 
