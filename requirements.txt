@@ -1,0 +1,11 @@
+# Python packages used by the notebooks. Install with: pip install -r requirements.txt
+pandas
+numpy
+matplotlib
+scikit-learn
+openpyxl
+langdetect
+trafilatura
+xgboost
+sentence-transformers
+jupyter

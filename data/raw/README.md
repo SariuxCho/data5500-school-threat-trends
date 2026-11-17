@@ -19,6 +19,17 @@ number in `queries/`, with no editing afterwards.
 | 12_daily_total_2021_tiktok.csv | 06_schoolthreat_2021_tiktok.sql | Daily totals, main case |
 | 13_daily_total_2026_cathat.csv | 07_schoolthreat_2026_cathat.sql | Daily totals |
 | 14_urls_2021_spikecheck.csv | 12_urls_2021_spikecheck.sql | Article links for one week |
+| 15_daily_baseline_notrend.csv | Exported from BigQuery | Daily totals for the same weeks in years with no known trend, used as the normal level in 05_trends |
+| 16_daily_categories_2019_momo.csv | Exported from BigQuery | Daily counts by category, Momo control case |
+| 01_articles_2016_clowns_linktest.csv, 02_articles_2021_tiktok_linktest.csv | notebooks/link_test.py | Which sampled links still download, used to choose the main case |
+
+## Files people made by hand
+
+| File | What it contains |
+|---|---|
+| pilot2_mine.xlsx, pilot2_female.xlsx, pilot2_male.xlsx | Round 2 labels from the three annotators |
+| training_set.csv | The 136 hand-labeled articles the model is trained on |
+| 09_verification_sample.xlsx | The blind reading of 58 predicted articles (50 plus 8 repeats) |
 
 ## Columns
 

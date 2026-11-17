@@ -48,6 +48,16 @@ The threat decision is the primary analysis. The split between targeted and nont
 
 **The trend changes the coverage.** Outside the peak week, between 71.62% and 100% of threat articles name the school that was threatened. In the week of 13 December that share falls to 39.44%. Coverage moves from individual schools to the trend itself and returns the week after.
 
+![Keyword search against the classifier](figures/10_keyword_vs_classified.png)
+
+![Targeted share by week](figures/10_targeted_share_by_week.png)
+
+## Known limitations
+
+- The 13 December drop in the targeted share may be partly driven by the model itself: the word `tiktok` pushes an article toward nontargeted, and that week's coverage is mostly about the TikTok trend. The targeted and nontargeted split is reported as secondary for this reason.
+- `00_charts.ipynb` (early exploration) measures each period's normal level as the median of its own first third. `05_trends.ipynb` uses the same weeks in years with no trend. The peak multiples quoted for Q3 to Q5 come from `05_trends.ipynb`.
+- Article text was downloaded from live web pages in 2026. Some links have since changed or disappeared, so rerunning `02_extract_text.ipynb` will not return exactly the same text.
+
 ## Data source
 
 All article data comes from the GDELT Global Knowledge Graph, a free public database of online news, queried through Google BigQuery.
@@ -65,7 +75,7 @@ queries/          One .sql file per query, each with a header explaining what it
 data/raw/         Query results, and files that carry human labels
 data/processed/   Files the notebooks produce
 notebooks/        Numbered notebooks, meant to be read in order
-docs/             Codebook, project plan, design document
+docs/             Codebook and the sheet used for the blind verification reading
 figures/          Charts used in the reports and the poster
 ```
 
@@ -75,7 +85,7 @@ figures/          Charts used in the reports and the poster
 
 | Notebook | What it does |
 |---|---|
-| `01_link_test.ipynb` | Tests how many article links still work, to choose the main case |
+| `link_test.py` | Script that tests how many article links still work, used to choose the main case. Run as `python link_test.py 02_articles_2021_tiktok.csv 300` |
 | `02_extract_text.ipynb` | Downloads article text with Trafilatura |
 | `03_clean.ipynb` | Cleans the corpus, from 4,995 links to 1,554 usable articles |
 | `04_labeling.ipynb` | Builds the annotation set for the codebook |
@@ -89,11 +99,18 @@ figures/          Charts used in the reports and the poster
 
 ## How to reproduce
 
+1. Install the packages: `pip install -r requirements.txt`
+2. Open Jupyter inside the `notebooks/` folder. Each notebook finds its files in `data/raw/` and `data/processed/` on its own, and saves charts to `figures/`.
+3. Run the notebooks in order, from `03_clean.ipynb` onward. Every file they need is in the repository.
+4. `02_extract_text.ipynb` downloads the article text from the web. Its output, `articles_2021_text.csv` (about 9 MB), is not in the repository, so run notebook 02 first if you want to rerun `03_clean.ipynb` from scratch. Its cleaned result, `articles_2021_clean.csv`, is included.
+5. `08_advanced_model.ipynb` needs XGBoost and sentence-transformers and takes the longest to run.
+
+To rebuild the raw data from scratch:
+
 1. Open BigQuery with any Google account. The free sandbox is enough and needs no billing.
 2. Run any file from `queries/`. Every query filters on `_PARTITIONTIME`, which keeps the scanned data inside the free monthly tier.
 3. Save the result as CSV. The matching file in `data/raw/` shows the expected output.
-4. Run the notebooks in order.
 
 ## Tools
 
-Python 3 with pandas, NumPy, scikit-learn, Trafilatura, XGBoost, sentence-transformers and matplotlib, run in Jupyter on a laptop.
+Python 3 with pandas, NumPy, scikit-learn, Trafilatura, langdetect, XGBoost, sentence-transformers and matplotlib, run in Jupyter on a laptop. The full list is in `requirements.txt`.
