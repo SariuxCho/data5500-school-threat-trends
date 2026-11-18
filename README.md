@@ -31,8 +31,6 @@ Reading the articles goes further. Inside the bucket the search tags as student 
 | Q4 | Are the trends lasting longer? | No. The longest runs above normal were 25, 25 and 17 days. The keyword error is larger on quiet days than at the peak, which points toward sharper waves |
 | Q5 | Does the measure stay quiet when there is no threat? | Yes. The Momo control, viral but with no school threats, reached 1.5 times its normal level |
 
-Q6 (shootings as triggers) and Q7 (a model trained on one trend applied to another) were optional in the Project Plan and are outside the scope of this work.
-
 ## Key results
 
 **Labeling.** Three annotators labeled 136 articles under a written codebook, in two rounds. The model was then fitted on those 136 and used to label the remaining 1,418 articles of the 2021 corpus.
