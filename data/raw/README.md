@@ -46,9 +46,7 @@ Each file was produced by the query named next to it in `queries/`, with no edit
 | articles_2021_text.csv | not in the repo (9 MB) | 02 | 03 |
 | articles_2021_linkstatus.csv | processed | 02 | none |
 | articles_2021_clean.csv | processed | 03 | 07, 09 |
-| articles_2021_clean_nolinks_text.csv | processed | 03 | a shareable copy without article text |
 | labels_round2.csv | processed | 06 | 07 |
-| labels_training.csv | processed | 06 | none, replaced by training_set.csv |
 | training_set.csv | raw | 07 | 08, 09, 11 |
 | 08_model_results.csv | processed | 08 | none |
 | labels_predicted_full.csv | processed | 09 | 10 |
