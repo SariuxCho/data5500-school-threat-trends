@@ -102,19 +102,19 @@ The second annotation round, 40 articles labeled with the version of this codebo
 
    A rumor is different. When the article only reports that students heard someone might bring a weapon, second-hand, and nobody is reported as having actually made a threat, the label is `unrelated`. The test: is there a person who said or posted it? If not, it is a rumor.
 
-8. **A threat between students is not a threat against the school.** A student threatening another student in a fight or an argument is `unrelated`. A threat to carry out a shooting or a bombing at a school is a threat against the school, even when it names particular students.
+3. **A threat between students is not a threat against the school.** A student threatening another student in a fight or an argument is `unrelated`. A threat to carry out a shooting or a bombing at a school is a threat against the school, even when it names particular students.
 
-9. **Warning signs are not a threat.** Worrying behavior before an attack, such as a violent drawing or a search for ammunition, is not someone saying they will do harm. An article about it is labeled by what else it reports.
+4. **Warning signs are not a threat.** Worrying behavior before an attack, such as a violent drawing or a search for ammunition, is not someone saying they will do harm. An article about it is labeled by what else it reports.
 
-3. **An attack is not a threat.** See the decision table below.
+5. **An attack is not a threat.** See the decision table below.
 
-4. **Label the text, not the link.** Some links point to one story but return another, for example a link reading "school-threat-december-17" whose text is about a new superintendent. The label follows the extracted text, because that is what the model reads.
+6. **Label the text, not the link.** Some links point to one story but return another, for example a link reading "school-threat-december-17" whose text is about a new superintendent. The label follows the extracted text, because that is what the model reads.
 
-5. **Who made the threat does not change the label.** The label is decided by the target, which is a school, not by who made the threat. Most articles report that a threat was made without identifying anyone, so requiring the person to be a student would leave most of the corpus unlabelable.
+7. **Who made the threat does not change the label.** The label is decided by the target, which is a school, not by who made the threat. Most articles report that a threat was made without identifying anyone, so requiring the person to be a student would leave most of the corpus unlabelable.
 
-6. **Where the threat came from does not change the label.** An article almost never states that a threat came from a viral trend, and it does not need to. The connection to the trend comes from the date of the article, not from the label.
+8. **Where the threat came from does not change the label.** An article almost never states that a threat came from a viral trend, and it does not need to. The connection to the trend comes from the date of the article, not from the label.
 
-7. **One label per article.** An article covering several threats is still labeled once.
+9. **One label per article.** An article covering several threats is still labeled once.
 
 ## Decision table
 
@@ -137,10 +137,10 @@ Shootings and threats appear together often in this period, because the Oxford H
 | The article analyzes the current wave of threats | nontargeted_threat |
 | What was extracted is not a news story | unusable |
 
-The fourth and fifth rows are the common case in this period. Articles about copycat threats discuss both the shooting and the threats, and are labeled by the threat, because the threat is what is being counted.
+The shooting rows are the common case in this period. Articles about copycat threats discuss both the shooting and the threats, and are labeled by the threat, because the threat is what is being counted.
 
-The sixth row is its opposite and is the trap. An article can describe schools, security and a shooting while nobody has made a threat at all.
+The row about a shooting elsewhere, where local schools added security and nobody made a threat, is the opposite case and the trap. An article can describe schools, security and a shooting while nobody has made a threat at all.
 
 ## Verification
 
-Each label proposed by the model is checked by hand against these rules. Disagreements between the proposed label and the verified label are recorded, and the disagreement rate is reported as the quality measure for the labeling step.
+A stratified sample of 50 model labels, plus 8 repeats, was read blind against these rules in notebook 09. Agreement between the model and the blind reading is reported as the quality measure for the labeling step.
