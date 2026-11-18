@@ -28,7 +28,7 @@ Each file was produced by the query named next to it in `queries/`, with no edit
 | 15_daily_baseline_notrend.csv | BigQuery export | Same weeks in years with no known trend, the normal level | 05 |
 | 16_daily_categories_2019_momo.csv | BigQuery export | Daily counts by category, Momo control case | 05 |
 
-## Made by hand (human work)
+## Made by hand
 
 | File | Folder | What it contains | Used by |
 |---|---|---|---|
