@@ -73,18 +73,19 @@ The dataset is public, so anyone with a Google account can run the queries in `q
 ```
 queries/          One .sql file per query, each with a header explaining what it does
 data/raw/         Query results, and files that carry human labels
-data/processed/   Files the notebooks produce
+data/processed/   Files the notebooks produce, plus three hand-made label files (see data/raw/README.md)
 notebooks/        Numbered notebooks, meant to be read in order
 docs/             Codebook and the sheet used for the blind verification reading
-figures/          Charts used in the reports and the poster
+figures/          Charts, each named after the notebook that makes it (05_..., 07_...)
 ```
 
-`data/raw/` holds everything a person produced and no code can regenerate, including the hand labels in `training_set.csv` and the blind readings in `09_verification_sample.xlsx`.
+`data/raw/` holds the BigQuery exports and the work people did by hand, such as the annotator sheets and the blind readings in `09_verification_sample.xlsx`. `data/raw/README.md` lists where every data file comes from.
 
 ## Notebooks
 
 | Notebook | What it does |
 |---|---|
+| `00_charts.ipynb` | First look at the daily counts of all five periods (early exploration) |
 | `link_test.py` | Script that tests how many article links still work, used to choose the main case. Run as `python link_test.py 02_articles_2021_tiktok.csv 300` |
 | `02_extract_text.ipynb` | Downloads article text with Trafilatura |
 | `03_clean.ipynb` | Cleans the corpus, from 4,995 links to 1,554 usable articles |
@@ -101,7 +102,7 @@ figures/          Charts used in the reports and the poster
 
 1. Install the packages: `pip install -r requirements.txt`
 2. Open Jupyter inside the `notebooks/` folder. Each notebook finds its files in `data/raw/` and `data/processed/` on its own, and saves charts to `figures/`.
-3. Run the notebooks in order, from `03_clean.ipynb` onward. Every file they need is in the repository.
+3. Run the notebooks in order, from `04_labeling.ipynb` onward. Every file they need is in the repository.
 4. `02_extract_text.ipynb` downloads the article text from the web. Its output, `articles_2021_text.csv` (about 9 MB), is not in the repository, so run notebook 02 first if you want to rerun `03_clean.ipynb` from scratch. Its cleaned result, `articles_2021_clean.csv`, is included.
 5. `08_advanced_model.ipynb` needs XGBoost and sentence-transformers and takes the longest to run.
 
